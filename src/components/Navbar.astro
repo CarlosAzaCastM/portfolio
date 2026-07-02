@@ -1,0 +1,280 @@
+---
+import { navLinks } from "../data/menuItems";
+import FPerfil2 from "@/assets/images/fperfil2.webp";
+---
+
+<header
+  class="navbar bg-[#0000006c] backdrop-blur-md w-full sticky top-0 z-40 shadow-sm"
+>
+  <div class="flex-none lg:hidden">
+    <label
+      for="main-menu-drawer"
+      aria-label="abrir menú"
+      class="btn btn-square btn-ghost"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="inline-block h-6 w-6 stroke-current"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </label>
+  </div>
+
+  <div class="flex-1 px-2 mx-2 align-center">
+    <a href="/about" class="text-lg font-bold flex items-center gap-4"
+      ><div class="avatar">
+        <div class="w-13 rounded-full">
+          <img src={FPerfil2.src} />
+        </div>
+      </div>Carlos Castañeda</a
+    >
+  </div>
+
+  <div class="hidden flex-none lg:block">
+    <nav class="flex items-center">
+      <ul class="menu menu-horizontal gap-3 flex-nowrap">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                class="text-md nav-link hover:bg-transparent! focus:bg-transparent!"
+                href={link.href}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div
+        class="lg:flex items-center justify-end px-4"
+        aria-label="Controles de la página"
+      >
+        <div
+          id="google_translate_element"
+          style="position: absolute; width: 0; height: 0; overflow: hidden;"
+          transition:persist="widget-traductor"
+        >
+        </div>
+
+        <div
+          class="dropdown dropdown-end hover:bg-transparent! hover:text-inherit!"
+        >
+          <button
+            tabindex="0"
+            aria-label="Seleccionar idioma"
+            class="flex items-center gap-2 px-4 py-1 bg-[#ff5277] text-white rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-[#0085c8] hover:scale-105 duration-120"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+              ></path>
+            </svg>
+            <span>Language</span>
+          </button>
+
+          <ul
+            tabindex="0"
+            class="dropdown-content menu bg-base-100 rounded-box z-60 w-40 p-2 mt-2 shadow-lg border border-base-200 gap-1"
+          >
+            <li>
+              <button
+                onclick="changeLanguage('es')"
+                class="text-left w-full py-2 px-3 hover:bg-transparent! hover:text-inherit! nav-link"
+              >
+                🇲🇽 Español
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="changeLanguage('en')"
+                class="text-left w-full py-2 px-3 hover:bg-transparent! hover:text-inherit! nav-link"
+              >
+                🇺🇸 English
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="changeLanguage('fr')"
+                class="text-left w-full py-2 px-3 hover:bg-transparent! hover:text-inherit! nav-link"
+              >
+                🇫🇷 Français
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="changeLanguage('ja')"
+                class="text-left w-full py-2 px-3 hover:bg-transparent! hover:text-inherit! nav-link"
+              >
+                🇯🇵 日本語
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="changeLanguage('de')"
+                class="text-left w-full py-2 px-3 hover:bg-transparent! hover:text-inherit! nav-link"
+              >
+                🇩🇪 Deutsch
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    position: relative;
+    transition: color 0.5s ease;
+  }
+
+  /* Línea desde la izquierda */
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff5277;
+    transition: width 0.3s ease;
+  }
+
+  /* Línea desde la derecha */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(234, 234, 234);
+    transition: width 0.3s ease;
+  }
+
+  /* Al hacer hover, ambas líneas se expanden hasta el 50% (centro) */
+  .nav-link:hover::before,
+  .nav-link:hover::after {
+    width: 50%;
+  }
+</style>
+
+<script is:inline>
+  window.googleTranslateElementInit = function () {
+    if (!document.querySelector(".goog-te-combo")) {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "es",
+          includedLanguages: "es,en,fr,ja,de",
+          autoDisplay: false,
+        },
+        "google_translate_element",
+      );
+    }
+  };
+
+  window.changeLanguage = function (langCode) {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = langCode;
+      select.dispatchEvent(new Event("change"));
+    } else {
+      setTimeout(() => {
+        const retrySelect = document.querySelector(".goog-te-combo");
+        if (retrySelect) {
+          retrySelect.value = langCode;
+          retrySelect.dispatchEvent(new Event("change"));
+        }
+      }, 500);
+    }
+  };
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+
+  // NUEVO: Antes de cambiar el DOM, revisamos si necesitamos ocultar la pantalla
+  document.addEventListener("astro:before-swap", (e) => {
+    const googtrans = getCookie("googtrans");
+    if (googtrans) {
+      const langCode = googtrans.split("/")[2];
+      // Si el idioma no es español, le aplicamos la clase de opacidad 0 al nuevo body
+      if (langCode && langCode !== "es") {
+        e.newDocument.body.classList.add("oculto-por-traduccion");
+      }
+    }
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    // 1. Inicializar el widget
+    if (
+      !document.querySelector(".goog-te-combo") &&
+      window.google &&
+      window.google.translate
+    ) {
+      window.googleTranslateElementInit();
+    }
+
+    // 2. Ejecutar la traducción y restaurar la visibilidad
+    setTimeout(() => {
+      const googtrans = getCookie("googtrans");
+
+      if (googtrans) {
+        const langCode = googtrans.split("/")[2];
+
+        if (langCode && langCode !== "es") {
+          // Forzamos la traducción
+          window.changeLanguage(langCode);
+
+          // Le damos a Google 400ms para traducir el DOM antes de mostrar la página
+          setTimeout(() => {
+            document.body.classList.remove("oculto-por-traduccion");
+          }, 400);
+        } else {
+          // Si es español, aseguramos que sea visible
+          document.body.classList.remove("oculto-por-traduccion");
+        }
+      } else {
+        document.body.classList.remove("oculto-por-traduccion");
+      }
+    }, 150);
+
+    // Sistema de seguridad: Si por alguna razón Google Translate falla,
+    // forzamos a que la página se muestre de todos modos después de 1 segundo
+    // para que el usuario nunca se quede viendo una pantalla en blanco.
+    setTimeout(() => {
+      if (document.body.classList.contains("oculto-por-traduccion")) {
+        document.body.classList.remove("oculto-por-traduccion");
+      }
+    }, 1000);
+  });
+</script>
+
+<script
+  is:inline
+  type="text/javascript"
+  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+></script>

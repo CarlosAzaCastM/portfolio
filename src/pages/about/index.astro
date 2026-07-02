@@ -1,0 +1,173 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Cube from "../../assets/svg/Cube.svg";
+import Code from "../../assets/svg/Code.svg";
+import Data from "../../assets/svg/Data.svg";
+import Fast from "../../assets/svg/Fast.svg";
+import Adaptability from "../../assets/svg/Adaptability.svg";
+import Hi from "../../assets/svg/Hi.svg";
+import Team from "../../assets/svg/Team.svg";
+import Hola from "../../assets/svg/Hola.svg";
+import Api from "../../assets/svg/Api.svg";
+import BlurText from "@/components/BlurText";
+import TechStack from "@/components/TechStack";
+import pruebaMarca from "@/assets/images/fPerfil1.webp";
+---
+
+<Layout title="About">
+  <h1>
+    <BlurText
+      client:load
+      text="Welcome to my world."
+      delay={200}
+      animateBy="words"
+      direction="top"
+      className="text-3xl font-bold md:text-8xl justify-center p-10"
+    />
+  </h1>
+
+  <section
+    class="flex flex-col md:flex-row gap-7 items-center justify-center mt-5"
+  >
+    <a
+      href="https://www.linkedin.com/in/carlos-azael-casta%C3%B1eda-74a645304/"
+    >
+      <div class="marco-irregular">
+        <img
+          src={pruebaMarca.src}
+          alt="Foto recortada"
+          class="imagen-recortada hover:scale-105 transition-transform"
+        />
+      </div>
+    </a>
+
+    <div class="flex flex-col gap-10 w-10/12 md:w-1/2">
+      <p class="text-base sm:text-3xl text-justify">
+        My name is Carlos Castañeda, and I'm a software development student from
+        Mexico.
+      </p>
+
+      <p class="text-base sm:text-3xl text-justify">
+        In recent months, I have focused on web <strong class="text-[#ff5277]"
+          >full-stack</strong
+        > development.
+      </p>
+
+      <p class="text-base sm:text-3xl text-justify">
+        I've participated in professional and school projects, always eager to
+        learn something new and put myself to the test.
+      </p>
+    </div>
+  </section>
+
+  <div class="min-h-dvh mt-15 md:mt-30">
+    <h2
+      class="text-2xl font-bold w-4/5 mx-auto border-b-2 border-[#ff5277]/70 md:text-4xl"
+    >
+      My Stack
+    </h2>
+    <TechStack client:load />
+    <h2
+      class="text-2xl font-bold w-4/5 mx-auto border-b-2 border-[#ff5277]/70 md:text-4xl mt-15 md:mt-30"
+    >
+      Technical skills
+    </h2>
+    <section
+      class="flex items-center gap-6 mb-5 flex-col mt-10 w-svw text-lg mx-auto md:w-4/5 md:text-2xl"
+    >
+      <ul class="text-center flex flex-col items-center justify-center gap-5">
+        <li>
+          <Api
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          REST API
+        </li>
+        <li>
+          <Cube
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Object-Oriented Programming (OOP)
+        </li>
+        <li>
+          <Data
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Database normalization
+        </li>
+        <li>
+          <Code
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Model-View-Controller (MVC)
+        </li>
+      </ul>
+    </section>
+
+    <h2
+      class="text-2xl font-bold w-4/5 mx-auto border-b-2 border-[#ff5277]/70 md:text-4xl mt-15 md:mt-30"
+    >
+      Soft Skills
+    </h2>
+    <section
+      class="flex items-center gap-6 mb-25 flex-col mt-10 w-svw text-lg mx-auto md:w-4/5 md:text-2xl"
+    >
+      <ul class="text-center flex flex-col items-center justify-center gap-5">
+        <li>
+          <Team
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Good teamwork
+        </li>
+        <li>
+          <Fast
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Knowledge of agile methodologies
+        </li>
+        <li>
+          <Adaptability
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Adaptability
+        </li>
+        <li>
+          <Hola
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          Spanish
+        </li>
+        <li>
+          <Hi
+            class="w-24 h-24 text-[#ff5277] hover:text-[#ff3460] hover:scale-110 transition-all duration-300 mx-auto"
+          />
+          English B2
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .marco-irregular {
+    width: 350px;
+    height: 300px;
+    background-color: #ff3460; /* El tono rosa del marco */
+    /* Coordenadas del polígono basadas en la imagen */
+    clip-path: polygon(30% 1%, 95% 19%, 100% 81%, 77% 98%, 7% 90%, 0 38%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: rotate(0.01turn);
+  }
+
+  .imagen-recortada {
+    /* El tamaño define qué tan grueso será el marco rosa */
+    width: 88%;
+    height: 88%;
+    object-fit: cover;
+    /* La imagen lleva exactamente el mismo recorte */
+    clip-path: polygon(30% 1%, 95% 19%, 100% 81%, 77% 98%, 7% 90%, 0 38%);
+    transform: translate(-1%, -1%) rotate(-0.01turn);
+  }
+</style>

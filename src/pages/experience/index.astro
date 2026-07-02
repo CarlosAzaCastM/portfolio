@@ -1,0 +1,128 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SolRunner from "@/assets/images/sol-runner.webp";
+import ErpImeyco from "@/assets/images/erp-imeyco.webp";
+import PortadaImeycoMx from "@/assets/images/portadaImeycoMx.webp";
+import chambitasPortada from "@/assets/images/chambitasHome.webp";
+import CotizadorHerrajes from "@/assets/images/CotizadorTiscareñoImprimir.webp";
+import TechBadge from "@/components/TechBadge";
+import PythonLogo from "@/assets/svg/Python.svg";
+import FastApiLogo from "@/assets/svg/FastApi.svg";
+import ReactLogo from "@/assets/svg/React.svg";
+import PostgreSQLLogo from "@/assets/svg/Postgresql.svg";
+import FigmaLogo from "@/assets/svg/Figma.svg";
+import TailwindCssLogo from "@/assets/svg/Tailwind.svg";
+import RailwayLogo from "@/assets/svg/Railway.svg";
+import CloudFlareLogo from "@/assets/svg/CloudFlare.svg";
+import TypeScript from "@/assets/svg/Ts.svg";
+import Solana from "@/assets/svg/Solana.svg";
+import Web3 from "@/assets/svg/Web3.svg";
+import ProjectCard from "@/components/ProjectCard.astro";
+import AstroLogo from "@/assets/svg/AstroSvg.svg";
+import vercelLogo from "@/assets/svg/Vercel.svg";
+import Railway from "@/assets/svg/Railway.svg";
+import jsLogo from "@/assets/svg/JsSvg.svg";
+import ApiLogo from "@/assets/svg/Api.svg";
+---
+
+<Layout title="experience">
+  <section class="p-5 md:p-20 bg-[#000000]">
+    <h1
+      class="text-4xl md:text-6xl font-bold w-max mb-16 pb-2 border-b-2 border-[#ff5277]/70"
+    >
+      Experience
+    </h1>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(420px,1fr))] gap-10 text-white"
+    >
+      {/* Card 1: IMEYCO ERP */}
+      <ProjectCard
+        title="IMEYCO ERP"
+        imageSrc={ErpImeyco.src}
+        imageAlt="IMEYCO ERP Dashboard"
+        description="Led the design and development of a custom ERP system for Imeyco. Managed a cross-functional team from start to finish and delivered the project successfully. I worked mainly on the backend, building strong and scalable systems, while also supporting the frontend when needed. The solution helped streamline the company’s core operations and significantly improved efficiency."
+        projectUrl="https://erpfrontend.imeyco01a.workers.dev/"
+        tags={["Lead Developer", "Full Stack Developer"]}
+      >
+        {
+          /* Todo lo que pongas aquí adentro se inyectará en el <slot /> de tecnologías */
+        }
+        <TechBadge icon={FigmaLogo.src} name="Figma" />
+        <TechBadge icon={ReactLogo.src} name="React" />
+        <TechBadge icon={TailwindCssLogo.src} name="Tailwind" />
+        <TechBadge icon={CloudFlareLogo.src} name="CloudFlare" />
+        <TechBadge icon={PythonLogo.src} name="Python" />
+        <TechBadge icon={FastApiLogo.src} name="FastAPI" />
+        <TechBadge icon={PostgreSQLLogo.src} name="PostgreSQL" />
+        <TechBadge icon={RailwayLogo.src} name="Railway" />
+      </ProjectCard>
+
+      {/* Card 2: SOL RUNNER */}
+      <ProjectCard
+        title="SOL RUNNER"
+        imageSrc={SolRunner.src}
+        imageAlt="SOL RUNNER Gameplay"
+        description="Roguelite Arena game connected to Solana with authentication via Phantom Wallet."
+        projectUrl="https://sol-runner.onrender.com/"
+        tags={["Blockchain Game"]}
+      >
+        <TechBadge icon={Solana.src} name="Solana" />
+        <TechBadge icon={TypeScript.src} name="TypeScript" />
+        <TechBadge icon={Web3.src} name="Web3" />
+        <TechBadge icon={vercelLogo.src} name="Vercel" />
+      </ProjectCard>
+      {/* Card 3: imeyco mx */}
+      <ProjectCard
+        title="IMEYCO MX"
+        imageSrc={PortadaImeycoMx.src}
+        imageAlt="imeyco mx portada"
+        description=" imeyco.mx is the official website of the company IMEYCO. I was responsible for the front end using Astro and Tailwind CSS, focusing on creating efficient interfaces, optimizing performance, and following SEO best practices."
+        projectUrl="https://imeyco.mx"
+        tags={["Landing Page", "Lead Developer"]}
+      >
+        <TechBadge icon={AstroLogo.src} name="Solana" />
+        <TechBadge icon={CloudFlareLogo.src} name="CloudFlare" />
+      </ProjectCard>
+      <time class="text-7xl mx-auto">2026</time>
+      <ProjectCard
+        title="Smart Quotation PWA"
+        imageSrc={CotizadorHerrajes.src}
+        imageAlt="Generating a sales quotation"
+        description="A Progressive Web App built for point-of-sale environments that enables staff to generate professional product quotations in seconds and instantly share them with customers via WhatsApp. I developed both the React frontend and the FastAPI backend, delivering a fast, responsive, and mobile-friendly experience."
+        projectUrl="https://cotizador-frontend-blush.vercel.app"
+        tags={["PWA", "WhatsApp", "Full Stack"]}
+      >
+        <TechBadge icon={ReactLogo.src} name="React" />
+        <TechBadge icon={TailwindCssLogo.src} name="Tailwind" />
+        <TechBadge icon={vercelLogo.src} name="Vercel" />
+        <TechBadge icon={PythonLogo.src} name="Python" />
+        <TechBadge icon={FastApiLogo.src} name="FastAPI" />
+        <TechBadge icon={RailwayLogo.src} name="Railway" />
+      </ProjectCard>
+      <ProjectCard
+        title="CHAMBITAS"
+        imageSrc={chambitasPortada.src}
+        imageAlt="chambitas portada"
+        description="Chambitas is a Fiverr-inspired freelance marketplace built during the 24-hour Interledger Hackathon in Mexico City. The platform helps freelancers maximize their earnings by leveraging the Interledger and Open Payments APIs to enable low-cost payments with minimal transaction fees. I developed the entire backend using Node.js and JavaScript, designing secure REST APIs, implementing authentication, integrating payment services, and building the core business logic to deliver a scalable and reliable platform within the hackathon timeframe."
+        projectUrl="https://github.com/CarlosAzaCastM/Chambitas"
+        tags={["Hackathon", "Freelance Marketplace", "Open Payments"]}
+      >
+        <TechBadge icon={jsLogo.src} name="JavaScript" />
+        <TechBadge icon={ApiLogo.src} name="OpenPay" />
+      </ProjectCard>
+      <ProjectCard
+        title="Burritos web"
+        imageSrc={chambitasPortada.src}
+        imageAlt="chambitas portada"
+        description="Chambitas is a Fiverr-inspired freelance marketplace built during the 24-hour Interledger Hackathon in Mexico City. The platform helps freelancers maximize their earnings by leveraging the Interledger and Open Payments APIs to enable low-cost payments with minimal transaction fees. I developed the entire backend using Node.js and JavaScript, designing secure REST APIs, implementing authentication, integrating payment services, and building the core business logic to deliver a scalable and reliable platform within the hackathon timeframe."
+        projectUrl="https://github.com/CarlosAzaCastM/Burritos_web/tree/main"
+        tags={["Hackathon", "Freelance Marketplace", "Open Payments"]}
+      >
+        <TechBadge icon={jsLogo.src} name="JavaScript" />
+        <TechBadge icon={ApiLogo.src} name="OpenPay" />
+      </ProjectCard>
+      <time class="text-7xl mx-auto">2025</time>
+    </div>
+  </section>
+</Layout>
