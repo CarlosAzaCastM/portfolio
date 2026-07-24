@@ -9,7 +9,7 @@ import tailwindLogo from "@/assets/svg/Tailwind.svg";
 import fastapiLogo from "@/assets/svg/FastApi.svg";
 import pythonLogo from "@/assets/svg/Python.svg";
 
-import postgresLogo from "@/assets/svg/PostgreSQL.svg";
+import postgresLogo from "@/assets/svg/Postgresql.svg";
 import AstroLogo from "@/assets/svg/AstroSvg.svg";
 import supabaseLogo from "@/assets/svg/supabase.svg";
 import vercelLogo from "@/assets/svg/Vercel.svg";
