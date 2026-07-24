@@ -6,7 +6,7 @@ import reactLogo from "@/assets/svg/React.svg";
 import tsLogo from "@/assets/svg/Ts.svg";
 import tailwindLogo from "@/assets/svg/Tailwind.svg";
 
-import fastapiLogo from "@/assets/svg/FastAPI.svg";
+import fastapiLogo from "@/assets/svg/FastApi.svg";
 import pythonLogo from "@/assets/svg/Python.svg";
 
 import postgresLogo from "@/assets/svg/PostgreSQL.svg";
